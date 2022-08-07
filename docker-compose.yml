@@ -53,6 +53,7 @@ services:
     
   airflow-webserver:
     << : *airflow-common
+    user: root
     command: airflow webserver
     ports:
       - 10002:8080
