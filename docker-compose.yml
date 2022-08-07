@@ -38,7 +38,7 @@ services:
     container_name: sp3_airflow_init
     entrypoint: /bin/bash
     env_file:
-      - .env
+      - .env2
     command:
       - -c
       - airflow users list || ( airflow db init &&
@@ -163,7 +163,7 @@ services:
     image: provectuslabs/kafka-ui
     container_name: sp3_control-center
     env_file:
-      - .env
+      - .env2
     depends_on:
       - broker
       - schema-registry
@@ -186,7 +186,7 @@ services:
     image: lscr.io/linuxserver/code-server:latest
     container_name: sp3_code-server
     env_file:
-      - .env
+      - .env2
     environment:
       - PUID=1000
       - PGID=1000
