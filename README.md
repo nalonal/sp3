@@ -1,5 +1,5 @@
 ## INSTALASI
-git clone https://github.com/nalonal/project3<br>
+git clone https://github.com/nalonal/sp3<br>
 cd project3<br>
 chmod u+x install.sh<br>
 ./install.sh

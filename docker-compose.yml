@@ -37,18 +37,20 @@ services:
     << : *airflow-common
     container_name: sp3_airflow_init
     entrypoint: /bin/bash
+    env_file:
+      - .env
     command:
       - -c
       - airflow users list || ( airflow db init &&
         airflow users create
           --role Admin
-          --username dataengineer
-          --password dataengineer
-          --email airflow@airflow.com
-          --firstname airflow
-          --lastname airflow )
+          --username ${AIRFLOW_USERNAME}
+          --password ${AIRFLOW_PASSWORD}
+          --email ${AIRFLOW_EMAIL}
+          --firstname ${AIRFLOW_FIRSTNAME}
+          --lastname ${AIRFLOW_LASTNAME} )
     restart: on-failure
-
+    
   airflow-webserver:
     << : *airflow-common
     command: airflow webserver
